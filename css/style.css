@@ -62,7 +62,7 @@ body {
     top: -40%;
     left: -40%;
     background: conic-gradient(#a000ff, #008cff, #a000ff);
-    animation: spin 40s linear infinite; /* 40 segundos */
+    animation: spin 8s linear infinite; /* 40 segundos */
 }
 
 #qr-container {
