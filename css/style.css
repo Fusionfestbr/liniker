@@ -179,7 +179,7 @@ body {
 
 .thumb-center img {
     width: 90%;
-    max-width: 500px;
+    max-width: 150px;
     height: auto;
     display: block;
 }
