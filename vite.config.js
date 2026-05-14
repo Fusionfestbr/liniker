@@ -1,9 +1,29 @@
+import { copyFileSync, mkdirSync, existsSync, readdirSync } from 'fs';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import { resolve } from 'path';
 
+function copyAssets() {
+  const srcDir = resolve(__dirname, 'assets');
+  const destDir = resolve(__dirname, 'dist/assets');
+  
+  if (!existsSync(destDir)) {
+    mkdirSync(destDir, { recursive: true });
+  }
+  
+  const files = readdirSync(srcDir);
+  files.forEach(file => {
+    copyFileSync(resolve(srcDir, file), resolve(destDir, file));
+  });
+  
+  console.log('Assets copiados para dist/assets/');
+}
+
 export default defineConfig({
+  base: './',
   build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
@@ -13,9 +33,15 @@ export default defineConfig({
     },
   },
   plugins: [
+    {
+      name: 'copy-assets',
+      closeBundle() {
+        copyAssets();
+      }
+    },
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['assets/*'],
+      includeAssets: ['assets/*.png', 'assets/*.jpg', 'assets/*.svg'],
       manifest: {
         name: 'Eventim Fusion',
         short_name: 'Eventim',
@@ -24,6 +50,8 @@ export default defineConfig({
         background_color: '#000000',
         display: 'standalone',
         orientation: 'portrait',
+        start_url: '/',
+        scope: '/',
         icons: [
           {
             src: 'assets/logo.png',
@@ -39,7 +67,13 @@ export default defineConfig({
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,png,jpg,svg}'],
+        globPatterns: ['**/*.{js,css,html,png,jpg,svg,ico}'],
+        cleanupOutdatedCaches: true,
+        navigateFallback: 'index.html',
+        navigateFallbackDenylist: [/\/assets\//]
+      },
+      devOptions: {
+        enabled: true
       }
     })
   ]
