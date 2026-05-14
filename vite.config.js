@@ -1,22 +1,24 @@
-import { copyFileSync, mkdirSync, existsSync, readdirSync } from 'fs';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
+import { copyFileSync, mkdirSync, existsSync, cpSync } from 'fs';
 import { resolve } from 'path';
 
-function copyAssets() {
-  const srcDir = resolve(__dirname, 'assets');
-  const destDir = resolve(__dirname, 'dist/assets');
-  
-  if (!existsSync(destDir)) {
-    mkdirSync(destDir, { recursive: true });
+function copyAllAssets() {
+  const srcAssets = resolve(__dirname, 'assets');
+  const destAssets = resolve(__dirname, 'dist/assets');
+  const destJs = resolve(__dirname, 'dist/js');
+
+  if (!existsSync(destAssets)) {
+    mkdirSync(destAssets, { recursive: true });
   }
-  
-  const files = readdirSync(srcDir);
-  files.forEach(file => {
-    copyFileSync(resolve(srcDir, file), resolve(destDir, file));
-  });
-  
-  console.log('Assets copiados para dist/assets/');
+  if (!existsSync(destJs)) {
+    mkdirSync(destJs, { recursive: true });
+  }
+
+  cpSync(srcAssets, destAssets, { recursive: true });
+  copyFileSync(resolve(__dirname, 'js/app.js'), resolve(destJs, 'app.js'));
+
+  console.log('Assets e JS copiados para dist/');
 }
 
 export default defineConfig({
@@ -24,19 +26,20 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
-        home: resolve(__dirname, 'home.html'),
-        meusEventos: resolve(__dirname, 'meus-eventos.html'),
+        main: 'index.html',
+        home: 'home.html',
+        meusEventos: 'meus-eventos.html',
       },
     },
   },
   plugins: [
     {
-      name: 'copy-assets',
+      name: 'copy-all-assets',
       closeBundle() {
-        copyAssets();
+        copyAllAssets();
       }
     },
     VitePWA({
