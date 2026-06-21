@@ -1,7 +1,7 @@
 const ingressos = [
 {
-    evento: "ZECA & ALCIONE & ARAGÃO: O MAIOR ENCONTRO DO SAMBA - SP #1",
-    data: "Sábado - 20/jun/26",
+    evento: "ZECA & ALCIONE & ARAGÃO: O MAIOR ENCONTRO DO SAMBA - SP #2",
+    data: "Domingo 21/06/26, 20:00",
     setor: "CADEIRA INFERIOR",
     entrada: "PORTÃO C",
     secao: "CAD. INFERIOR",
@@ -21,7 +21,7 @@ const ingressos = [
 },
 {
     evento: "ZECA & ALCIONE & ARAGÃO: O MAIOR ENCONTRO DO SAMBA - SP #2",
-    data: "Sábado - 20/jun/26",
+    data: "Domingo 21/06/26, 20:00",
     setor: "CADEIRA SUPERIOR",
     entrada: "PORTÃO B",
     secao: "CAD. SUPERIOR",
@@ -40,8 +40,8 @@ const ingressos = [
     ]
 },
 {
-    evento: "ZECA & ALCIONE & ARAGÃO: O MAIOR ENCONTRO DO SAMBA - SP #3",
-    data: "Sábado - 20/jun/26",
+    evento: "ZECA & ALCIONE & ARAGÃO: O MAIOR ENCONTRO DO SAMBA - SP #2",
+    data: "Domingo 21/06/26, 20:00",
     setor: "PISTA PREMIUM",
     entrada: "PORTÃO B",
     secao: "PISTA PREMIUM",
@@ -60,8 +60,8 @@ const ingressos = [
     ]
 },
 {
-    evento: "ZECA & ALCIONE & ARAGÃO: O MAIOR ENCONTRO DO SAMBA - SP #4",
-    data: "Sábado - 20/jun/26",
+    evento: "ZECA & ALCIONE & ARAGÃO: O MAIOR ENCONTRO DO SAMBA - SP #2",
+    data: "Domingo 21/06/26, 20:00",
     setor: "PISTA",
     entrada: "PORTÃO A",
     secao: "PISTA",
