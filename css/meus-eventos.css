@@ -114,14 +114,14 @@ body {
 
 .card-image-area {
     background-color: var(--card-blue);
-    padding: 20px;
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .card-image-area img {
-    width: 100px;
+    width: 400px;
     height: auto;
     box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
