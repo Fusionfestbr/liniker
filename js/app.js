@@ -1,7 +1,7 @@
 const ingressos = [
 {
     evento: "XUXA - O ÚLTIMO VOO DA NAVE #01",
-    data: "Sábado 11/07/26, 19:00",
+    data: "Sábado 25/jul/26, 16:00",
     setor: "CADEIRA INFERIOR",
     entrada: "PORTÃO C",
     secao: "CAD. INFERIOR",
@@ -21,7 +21,7 @@ const ingressos = [
 },
 {
     evento: "XUXA - O ÚLTIMO VOO DA NAVE #01",
-    data: "Sábado 11/07/26, 19:00",
+    data: "Sábado 25/jul/26, 16:00",
     setor: "CADEIRA SUPERIOR",
     entrada: "PORTÃO B",
     secao: "CAD. SUPERIOR",
@@ -41,7 +41,7 @@ const ingressos = [
 },
 {
     evento: "XUXA - O ÚLTIMO VOO DA NAVE #01",
-    data: "Sábado 11/07/26, 19:00",
+    data: "Sábado 25/jul/26, 16:00",
     setor: "PISTA PREMIUM",
     entrada: "PORTÃO B",
     secao: "PISTA PREMIUM",
@@ -61,7 +61,7 @@ const ingressos = [
 },
 {
     evento: "XUXA - O ÚLTIMO VOO DA NAVE #01",
-    data: "Sábado 11/07/26, 19:00",
+    data: "Sábado 25/jul/26, 16:00",
     setor: "PISTA",
     entrada: "PORTÃO A",
     secao: "PISTA",
